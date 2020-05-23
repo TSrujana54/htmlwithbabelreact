@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working With JSX</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React and React DOM Libraries -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+    <!-- to implement JS use babel library -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Design react Application -->
+
+    <script type="text/babel">
+
+        // Creating own element
+
+        // const List = (props) => {
+        //     return (
+        //         <li>{props.item}</li>
+        //     )
+        // }
+
+        // Render the Element
+
+        // ReactDOM.render(
+        //     <ul>
+        //         <List item="Hello" />
+        //         <List item="welcome" />
+        //     </ul>
+        //     ,
+        //     document.getElementById('root')
+        // )
+        // Components inside another componnets
+        const CustomSection = (props) => {
+            return (
+                <div>
+                    <h1>{props.heading}</h1>
+                    {props.children}
+                </div>
+            )
+
+        }
+        const List = (props) => {
+            return (
+                <li>{props.item}</li>
+            )
+        }
+
+        ReactDOM.render(
+            <CustomSection heading="Welcome to Stackroute">
+                <List item="React JS"></List>
+                <List item="Angular JS"></List>
+            </CustomSection>
+            ,
+            document.getElementById('root')
+        )
+
+
+    </script>
+</body>
+
+</html>
